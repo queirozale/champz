@@ -1,0 +1,25 @@
+{
+  "name": "champz",
+  "version": "1.0.0",
+  "description": "We are a platform that connects athletes and investors",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/queirozale/champz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/queirozale/champz/issues"
+  },
+  "homepage": "https://github.com/queirozale/champz#readme",
+  "dependencies": {
+    "next": "^10.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
