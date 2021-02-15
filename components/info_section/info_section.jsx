@@ -47,7 +47,7 @@ export default function InfoSection() {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  }; 
 
   const handleReset = () => {
     setActiveStep(0);

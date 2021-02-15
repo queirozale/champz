@@ -5,6 +5,7 @@ import Simulator from "../components/simulator/simulator";
 import Forms from "../components/forms/forms";
 import AboutUs from "../components/about_us/about_us";
 import Footer from "../components/footer/footer";
+import { Typography } from '@material-ui/core';
 
 
 function Home() {
@@ -13,8 +14,10 @@ function Home() {
             <Navbar />
             <Carousel/>
             <InfoSection/>
-            {/* <Simulator/> */}
-            <Forms/>
+            <Typography variant="h4" component="h4" align="center">Simule seu investimento</Typography>
+            <br></br>
+            <Simulator user_type="investor"/>
+            {/* <Forms/> */}
             {/* <AboutUs/> */}
             <Footer />
         </div>
