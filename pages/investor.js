@@ -10,22 +10,21 @@ import Header from "../components/signin/testin";
 import SignInSide from "../components/signin/signin";
 
 
-function Home() {
+function InvestorPage() {
     return (
         <div>
-            <SignInSide />
             {/* <ResponsiveDrawer /> */}
-            {/* <Navbar />
+            <Navbar />
             <Carousel/>
             <InfoSection/>
             <Typography variant="h4" component="h4" align="center">Simule seu investimento</Typography>
             <br></br>
             <Simulator user_type="investor"/>
-            <Forms/>
-            <AboutUs/>
-            <Footer /> */}
+            {/* <Forms/> */}
+            {/* <AboutUs/> */}
+            <Footer />
         </div>
     )
 }
 
-export default Home;
+export default InvestorPage;

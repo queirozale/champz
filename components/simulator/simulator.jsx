@@ -104,9 +104,8 @@ React.useEffect(() => {
                         <MediaCard name= { values.atleta } />
                     </Grid>
                     <Grid item xs={3}>
-                        <h3>TEST</h3>
                         <FormControl>
-                            <Box m={2}>
+                            <Box m={3}>
                                 <InputLabel id="demo-simple-select-helper-label">Atleta</InputLabel>
                                 <Select
                                 labelId="demo-simple-select-helper-label"
@@ -122,7 +121,7 @@ React.useEffect(() => {
                                 </Select>
                                 <FormHelperText>Escolha seu atleta</FormHelperText>
                             </Box>
-                            <Box m={2}>
+                            <Box m={3}>
                                 <TextField
                                 id="outlined"
                                 label="Cotas"

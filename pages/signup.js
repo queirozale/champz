@@ -7,13 +7,13 @@ import AboutUs from "../components/about_us/about_us";
 import Footer from "../components/footer/footer";
 import { Typography } from '@material-ui/core';
 import Header from "../components/signin/testin";
-import SignInSide from "../components/signin/signin";
+import SignUp from "../components/signup/signup";
 
 
-function Home() {
+function SignUpPage() {
     return (
         <div>
-            <SignInSide />
+            <SignUp />
             {/* <ResponsiveDrawer /> */}
             {/* <Navbar />
             <Carousel/>
@@ -28,4 +28,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default SignUpPage;
