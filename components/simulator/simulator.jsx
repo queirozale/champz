@@ -12,7 +12,6 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
       '& .MuiTextField-root': {
@@ -86,46 +85,57 @@ function formatMoney(amount, decimalCount = 2, decimal = ",", thousands = ".") {
     }
 };
 
+const [width, setWidth] = React.useState(0);
+React.useEffect(() => {
+  setWidth(window.innerWidth);
+});
+const breakpoint = 620;
+
+React.useEffect(() => {
+  window.addEventListener("resize", () => setWidth(window.innerWidth));
+}, []);
+
   if (user_type === "investor"){
     return (
         <form className={classes.root} noValidate autoComplete="off">
             <div>
-                <Grid container justify="center" wrap="nowrap" spacing={5}>
+                <Grid container justify="center" wrap="nowrap" spacing={5} direction={width < breakpoint ? "column" : "row"} alignItems="center">
                     <Grid item xs={1} style={{minWidth: 300}}>
-                    <MediaCard name= { values.atleta } />
+                        <MediaCard name= { values.atleta } />
                     </Grid>
                     <Grid item xs={3}>
-                    <FormControl>
-                    <Box m={2}>
-                        <InputLabel id="demo-simple-select-helper-label">Atleta</InputLabel>
-                        <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        style={{minWidth: 200}}
-                        onChange={handleChange('atleta')}
-                        >
-                        <MenuItem value={"Atleta01"}>Atleta01</MenuItem>
-                        <MenuItem value={"Atleta02"}>Atleta02</MenuItem>
-                        <MenuItem value={"Atleta03"}>Atleta03</MenuItem>
-                        <MenuItem value={"Atleta04"}>Atleta04</MenuItem>
-                        <MenuItem value={"Atleta05"}>Atleta05</MenuItem>
-                        </Select>
-                        <FormHelperText>Escolha seu atleta</FormHelperText>
-                    </Box>
-                    <Box m={2}>
-                        <TextField
-                        id="outlined"
-                        label="Cotas"
-                        defaultValue="15"
-                        variant="outlined"
-                        value={values.cotas}
-                        onChange={handleChange('cotas')}
-                        />
-                    </Box>
-                    <Button variant="contained" color="primary" onClick={() => { setRetorno(simulation(values.cotas, values.atleta)) }}>
-                        Simular
-                    </Button>
-                    </FormControl>
+                        <h3>TEST</h3>
+                        <FormControl>
+                            <Box m={2}>
+                                <InputLabel id="demo-simple-select-helper-label">Atleta</InputLabel>
+                                <Select
+                                labelId="demo-simple-select-helper-label"
+                                id="demo-simple-select-helper"
+                                style={{minWidth: 200}}
+                                onChange={handleChange('atleta')}
+                                >
+                                <MenuItem value={"Atleta01"}>Atleta01</MenuItem>
+                                <MenuItem value={"Atleta02"}>Atleta02</MenuItem>
+                                <MenuItem value={"Atleta03"}>Atleta03</MenuItem>
+                                <MenuItem value={"Atleta04"}>Atleta04</MenuItem>
+                                <MenuItem value={"Atleta05"}>Atleta05</MenuItem>
+                                </Select>
+                                <FormHelperText>Escolha seu atleta</FormHelperText>
+                            </Box>
+                            <Box m={2}>
+                                <TextField
+                                id="outlined"
+                                label="Cotas"
+                                defaultValue="15"
+                                variant="outlined"
+                                value={values.cotas}
+                                onChange={handleChange('cotas')}
+                                />
+                            </Box>
+                            <Button variant="contained" color="primary" onClick={() => {setRetorno(simulation(values.cotas, values.atleta))}}>
+                                Simular
+                            </Button>
+                        </FormControl>
                     </Grid>
                 </Grid>
             </div>
