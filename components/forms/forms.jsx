@@ -1,24 +1,68 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
+export default class MyForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.submitForm = this.submitForm.bind(this);
+        this.state = {
+          status: ""
+        };
+      };
 
-export default function Forms() {
-  const classes = useStyles();
+    render() {
+        const { status } = this.state;
+        return (
+            <form
+            onSubmit={this.submitForm}
+            action="https://formspree.io/f/xoqpzdwv"
+            method="POST"
+            >
+            <Form.Group controlId="formBasicEmail" role="form">
+                <Form.Label>Nome</Form.Label>
+                <Form.Control type="text" name="nome" placeholder="Digite seu nome" />
 
-  return (
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-    </form>
-  );
-}
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" name="email" placeholder="Digite seu email" />
+                <Form.Text className="text-muted">
+                Escolha um email válido
+                </Form.Text>
+            </Form.Group>
+    
+            <Form.Control
+              as="select"
+              name="user_type"
+              className="my-1 mr-sm-2"
+              id="inlineFormCustomSelectPref"
+              custom
+            >
+              <option value="investidor">Investidor</option>
+              <option value="atleta">Atleta</option>
+            </Form.Control>
+            {status === "SUCCESS" ? <p>Muito obrigado!</p> : <Button variant="primary" type="submit">Submit</Button>}
+            {status === "ERROR" && <p>Houve um erro. Tente novamente</p>}
+            </form>
+        )
+    };
+
+    submitForm(ev) {
+        ev.preventDefault();
+        const form = ev.target;
+        const data = new FormData(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState !== XMLHttpRequest.DONE) return;
+          if (xhr.status === 200) {
+            form.reset();
+            this.setState({ status: "SUCCESS" });
+          } else {
+            this.setState({ status: "ERROR" });
+          }
+        };
+        xhr.send(data);
+      }
+};
