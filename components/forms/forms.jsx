@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
+import Grid from '@material-ui/core/Grid';
 
 export default class MyForm extends React.Component {
     constructor(props) {
@@ -30,7 +31,8 @@ export default class MyForm extends React.Component {
                 Escolha um email válido
                 </Form.Text>
             </Form.Group>
-    
+
+            <Form.Label>Selecione seu perfil</Form.Label>
             <Form.Control
               as="select"
               name="user_type"
@@ -41,8 +43,10 @@ export default class MyForm extends React.Component {
               <option value="investidor">Investidor</option>
               <option value="atleta">Atleta</option>
             </Form.Control>
-            {status === "SUCCESS" ? <p>Muito obrigado!</p> : <Button variant="primary" type="submit">Submit</Button>}
+            <Grid container justify = "center">
+            {status === "SUCCESS" ? <p>Muito obrigado!</p> : <Button variant="primary" type="submit">Enviar</Button>}
             {status === "ERROR" && <p>Houve um erro. Tente novamente</p>}
+            </Grid>
             </form>
         )
     };

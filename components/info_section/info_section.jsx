@@ -5,6 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,17 +21,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Escolha seu champz', 'Invista na carreira', 'Adquira benefícios'];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return 'Select campaign settings...';
+      return 'Conheça todos os atletas da Champz e escolha seu campeão';
     case 1:
-      return 'What is an ad group anyways?';
+      return 'Acelere a carreira do seu atleta e contribua para que ele chegue ao topo com pequeno investimento mensal';
     case 2:
-      return 'This is the bit I really care about!';
+      return 'Adquira benefícios';
     default:
       return 'Unknown stepIndex';
   }
@@ -62,30 +63,34 @@ export default function InfoSection() {
           </Step>
         ))}
       </Stepper>
+      <Grid container justify = "center">
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>All steps completed</Typography>
+            <Typography className={classes.instructions}>Agora é só esperar e acompanhar o crescimento do seu Champz</Typography>
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
             <div>
+            <Grid container justify = "center">
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.backButton}
               >
-                Back
+                Voltar
               </Button>
               <Button variant="contained" color="primary" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === steps.length - 1 ? 'Fim' : 'Próximo'}
               </Button>
+            </Grid>
             </div>
           </div>
         )}
       </div>
+      </Grid>
     </div>
   );
 }

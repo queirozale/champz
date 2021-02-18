@@ -3,20 +3,18 @@ import Carousel from "../components/carousel/carousel";
 import InfoSection from "../components/info_section/info_section";
 import Simulator from "../components/simulator/simulator";
 import MyForm from "../components/forms/forms";
-import AboutUs from "../components/about_us/about_us";
 import Footer from "../components/footer/footer";
 import { Typography } from '@material-ui/core';
-import Header from "../components/signin/testin";
-import SignInSide from "../components/signin/signin";
 import Grid from '@material-ui/core/Grid';
+import AboutUs from "../components/about_us/about_us";
 
 
 function InvestorPage() {
     return (
         <div>
-            {/* <ResponsiveDrawer /> */}
             <Navbar />
             <Carousel/>
+            <Typography variant="h4" component="h4" align="center">Entenda o processo</Typography>
             <InfoSection/>
             <Typography variant="h4" component="h4" align="center">Simule seu investimento</Typography>
             <br></br>
@@ -34,7 +32,8 @@ function InvestorPage() {
                     <MyForm/>
                 </Grid>   
             </Grid>
-            {/* <AboutUs/> */}
+            <Typography variant="h4" component="h4" align="center">Quem somos</Typography>
+            <AboutUs />
             <Footer />
         </div>
     )
