@@ -55,7 +55,8 @@ export default function InfoSection() {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="info_section">
+      <Typography variant="h4" component="h4" align="center">Entenda o processo</Typography>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>

@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) =>({
   root: {
-    height: 827,
+    maxWidth: 400,
     align: 'center',
     backgroundColor: 'black',
     

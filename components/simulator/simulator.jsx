@@ -97,7 +97,8 @@ React.useEffect(() => {
 
   if (user_type === "investor"){
     return (
-        <form className={classes.root} noValidate autoComplete="off">
+        <form className={classes.root} noValidate autoComplete="off" id="simulator">
+            <Typography variant="h4" component="h4" align="center">Simule seu investimento</Typography>
             <div>
                 <Grid container justify="center" wrap="nowrap" spacing={5} direction={width < breakpoint ? "column" : "row"} alignItems="center">
                     <Grid item xs={1} style={{minWidth: 300}}>

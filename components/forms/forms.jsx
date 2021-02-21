@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 export default class MyForm extends React.Component {
     constructor(props) {
@@ -20,7 +21,9 @@ export default class MyForm extends React.Component {
             onSubmit={this.submitForm}
             action="https://formspree.io/f/xoqpzdwv"
             method="POST"
+            id="subscription"
             >
+            <Typography variant="h4" component="h4" align="center">Se inscreva agora mesmo!</Typography>
             <Form.Group controlId="formBasicEmail" role="form">
                 <Form.Label>Nome</Form.Label>
                 <Form.Control type="text" name="nome" placeholder="Digite seu nome" />
