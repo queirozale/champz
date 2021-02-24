@@ -16,7 +16,7 @@ import Footer from "components/Footer/Footer.js";
 import SectionTabs from "pages-sections/Components-Sections/SectionTabs.js";
 import SectionPills from "pages-sections/Components-Sections/SectionPills.js";
 
-import image from "assets/img/bg.jpg";
+import image from "assets/img/balboa-background.jpg";
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/navbarsStyle.js";
 
 const useStyles = makeStyles(styles);
