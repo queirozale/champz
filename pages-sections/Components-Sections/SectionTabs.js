@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -10,6 +11,7 @@ import Build from "@material-ui/icons/Build";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomTabs from "components/CustomTabs/CustomTabs.js";
+import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/tabsStyle.js";
 
@@ -21,121 +23,62 @@ export default function SectionTabs() {
     <div className={classes.section}>
       <div className={classes.container}>
         <div id="nav-tabs">
-          <h3>Navigation Tabs</h3>
+          <h3>Escolha seu perfil</h3>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <h3>
-                <small>Tabs with Icons on Card</small>
+                <small>Sou investidor</small>
               </h3>
               <CustomTabs
-                headerColor="primary"
+                headerColor="success"
                 tabs={[
                   {
-                    tabName: "Profile",
+                    tabName: "Investidor",
                     tabIcon: Face,
                     tabContent: (
                       <p className={classes.textCenter}>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                        Você está disposto a impulsionar a carreira de atletas,
+                        fazendo ótimos negócios com isso. É um estrategista nato,
+                        que possui um olhar de negócios diferenciado para as oportunidades.
+                        Escolha seu Champz, tenha possibilidade de altos rendimentos e acompanhe
+                        de perto a evolução do seu atleta
                       </p>
                     )
                   },
-                  {
-                    tabName: "Messages",
-                    tabIcon: Chat,
-                    tabContent: (
-                      <p className={classes.textCenter}>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. I will be the leader of a company
-                        that ends up being worth billions of dollars, because I
-                        got the answers. I understand culture. I am the nucleus.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
-                      </p>
-                    )
-                  },
-                  {
-                    tabName: "Settings",
-                    tabIcon: Build,
-                    tabContent: (
-                      <p className={classes.textCenter}>
-                        think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
-                      </p>
-                    )
-                  }
                 ]}
               />
+              <GridContainer justify="center">
+                <Link href="/components" as="/components">
+                  <Button color="success">Entrar</Button>
+                </Link>
+              </GridContainer>
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
               <h3>
-                <small>Tabs on Plain Card</small>
+                <small>Sou atleta</small>
               </h3>
               <CustomTabs
-                plainTabs
-                headerColor="danger"
+                headerColor="info"
                 tabs={[
                   {
-                    tabName: "Home",
+                    tabName: "Atleta",
+                    tabIcon: Face,
                     tabContent: (
                       <p className={classes.textCenter}>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
+                        Você é um atleta de alto rendimento que tem vondade de crescer
+                        e evoluir cada vez mais. Para isso, precisa daquela ajuda financeira
+                        que com certeza é fundamental para impulsionar a sua carreira. Cadastre-se
+                        agora mesmo e alcance o seu potencial de campeão
                       </p>
                     )
                   },
-                  {
-                    tabName: "Updates",
-                    tabContent: (
-                      <p className={classes.textCenter}>
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. I will be the leader of a company
-                        that ends up being worth billions of dollars, because I
-                        got the answers. I understand culture. I am the nucleus.
-                        I think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at.
-                      </p>
-                    )
-                  },
-                  {
-                    tabName: "History",
-                    tabContent: (
-                      <p className={classes.textCenter}>
-                        think that’s a responsibility that I have, to push
-                        possibilities, to show people, this is the level that
-                        things could be at. So when you get something that has
-                        the name Kanye West on it, it’s supposed to be pushing
-                        the furthest possibilities. I will be the leader of a
-                        company that ends up being worth billions of dollars,
-                        because I got the answers. I understand culture. I am
-                        the nucleus.
-                      </p>
-                    )
-                  }
                 ]}
               />
+              <GridContainer justify="center">
+                <Link href="/components" as="/components">
+                  <Button color="info">Entrar</Button>
+                </Link>
+              </GridContainer>
             </GridItem>
           </GridContainer>
         </div>

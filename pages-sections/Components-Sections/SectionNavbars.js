@@ -130,6 +130,7 @@ export default function SectionNavbars() {
             />
           </GridItem>
         </GridContainer>
+        {/* start  */}
         <div className={classes.title}>
           <h3>Navigation</h3>
         </div>
@@ -431,6 +432,7 @@ export default function SectionNavbars() {
           />
         </div>
       </div>
+      {/* end */}
     </div>
   );
 }
