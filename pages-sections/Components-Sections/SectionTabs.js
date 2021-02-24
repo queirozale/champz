@@ -49,6 +49,7 @@ export default function SectionTabs() {
                   <Button color="success">Entrar</Button>
                 </Link>
               </GridContainer>
+              <br></br>
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
               <CustomTabs
