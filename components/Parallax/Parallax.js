@@ -7,20 +7,18 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-import styles from "assets/jss/material-kit-react/components/parallaxStyle.js";
+import styles from "assets/jss/nextjs-material-kit/components/parallaxStyle.js";
 
 const useStyles = makeStyles(styles);
 
 export default function Parallax(props) {
   let windowScrollTop;
-  if (window.innerWidth >= 768) {
-    windowScrollTop = window.pageYOffset / 3;
-  } else {
-    windowScrollTop = 0;
-  }
-  const [transform, setTransform] = React.useState(
-    "translate3d(0," + windowScrollTop + "px,0)"
-  );
+  // if (window.innerWidth >= 768) {
+  //   windowScrollTop = window.pageYOffset / 3;
+  // } else {
+  //   windowScrollTop = 0;
+  // }
+  const [transform, setTransform] = React.useState("translate3d(0,0px,0)");
   React.useEffect(() => {
     if (window.innerWidth >= 768) {
       window.addEventListener("scroll", resetTransform);
@@ -35,12 +33,21 @@ export default function Parallax(props) {
     var windowScrollTop = window.pageYOffset / 3;
     setTransform("translate3d(0," + windowScrollTop + "px,0)");
   };
-  const { filter, className, children, style, image, small } = props;
+  const {
+    filter,
+    className,
+    children,
+    style,
+    image,
+    small,
+    responsive
+  } = props;
   const classes = useStyles();
   const parallaxClasses = classNames({
     [classes.parallax]: true,
     [classes.filter]: filter,
     [classes.small]: small,
+    [classes.parallaxResponsive]: responsive,
     [className]: className !== undefined
   });
   return (
@@ -63,5 +70,7 @@ Parallax.propTypes = {
   children: PropTypes.node,
   style: PropTypes.string,
   image: PropTypes.string,
-  small: PropTypes.bool
+  small: PropTypes.bool,
+  // this will add a min-height of 660px on small screens
+  responsive: PropTypes.bool
 };
