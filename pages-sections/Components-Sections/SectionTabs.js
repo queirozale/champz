@@ -45,7 +45,7 @@ export default function SectionTabs() {
                 ]}
               />
               <GridContainer justify="center">
-                <Link href="/components" as="/components">
+                <Link href="/investor" as="/investor">
                   <Button color="success">Entrar</Button>
                 </Link>
               </GridContainer>
@@ -70,7 +70,7 @@ export default function SectionTabs() {
                 ]}
               />
               <GridContainer justify="center">
-                <Link href="/components" as="/components">
+                <Link href="/athlete" as="/athlete">
                   <Button color="info">Entrar</Button>
                 </Link>
               </GridContainer>
