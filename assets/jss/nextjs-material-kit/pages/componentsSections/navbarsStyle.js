@@ -11,7 +11,7 @@ const navbarsStyle = theme => ({
     ...title,
     marginTop: "30px",
     minHeight: "32px",
-    textDecoration: "none"
+    textDecoration: "none",
   },
   navbar: {
     marginBottom: "-20px",
