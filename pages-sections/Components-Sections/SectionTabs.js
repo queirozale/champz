@@ -26,9 +26,6 @@ export default function SectionTabs() {
           <h3>Escolha seu perfil</h3>
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
-              <h3>
-                <small>Sou investidor</small>
-              </h3>
               <CustomTabs
                 headerColor="success"
                 tabs={[
@@ -54,9 +51,6 @@ export default function SectionTabs() {
               </GridContainer>
             </GridItem>
             <GridItem xs={12} sm={12} md={6}>
-              <h3>
-                <small>Sou atleta</small>
-              </h3>
               <CustomTabs
                 headerColor="info"
                 tabs={[
