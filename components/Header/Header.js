@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -11,10 +12,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+import SportsMmaIcon from '@material-ui/icons/SportsMma';
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
-import styles from "assets/jss/material-kit-react/components/headerStyle.js";
+import styles from "assets/jss/nextjs-material-kit/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
 
@@ -60,7 +62,11 @@ export default function Header(props) {
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  const brandComponent = <Button className={classes.title}>{brand}</Button>;
+  const brandComponent = (
+    <Link href="/components" as="/components">
+      <Button className={classes.title}><SportsMmaIcon />{brand}</Button>
+    </Link>
+  );
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>

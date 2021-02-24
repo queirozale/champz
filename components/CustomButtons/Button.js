@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 
 // core components
 
-import buttonStyle from "../componentsStyles/buttonStyle.js";
+import buttonStyle from "assets/jss/nextjs-material-kit/components/buttonStyle.js";
 
 const makeComponentStyles = makeStyles(() => ({
   ...buttonStyle
@@ -48,7 +48,7 @@ const RegularButton = React.forwardRef((props, ref) => {
     [className]: className
   });
   return (
-    <Button {...rest} ref={ref} className={btnClasses}>
+    <Button {...rest} ref={ref} classes={{ root: btnClasses }}>
       {children}
     </Button>
   );

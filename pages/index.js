@@ -1,31 +1,48 @@
-import Navbar from "../components/navbar/navbar";
-import Carousel from "../components/carousel2/carousel";
-import InfoSection from "../components/info_section/info_section";
-import Simulator from "../components/simulator/simulator";
-import Forms from "../components/forms2/forms";
-import AboutUs from "../components/about_us/about_us";
-import Footer from "../components/footer2/footer";
-import { Typography } from '@material-ui/core';
-import Header from "../components/signin/testin";
-import SignInSide from "../components/signin/signin";
+import React, { Component } from "react";
+import Router from "next/router";
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+// core components
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import Header from "components/Header/Header.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
+import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
+import Button from "components/CustomButtons/Button.js";
+import Footer from "components/Footer/Footer.js";
 
+import SectionTabs from "pages-sections/Components-Sections/SectionTabs.js";
+import SectionPills from "pages-sections/Components-Sections/SectionPills.js";
 
-function Home() {
-    return (
-        <div>
-            <SignInSide />
-            {/* <ResponsiveDrawer /> */}
-            {/* <Navbar />
-            <Carousel/>
-            <InfoSection/>
-            <Typography variant="h4" component="h4" align="center">Simule seu investimento</Typography>
-            <br></br>
-            <Simulator user_type="investor"/>
-            <Forms/>
-            <AboutUs/>
-            <Footer /> */}
-        </div>
-    )
-}
+import image from "assets/img/bg.jpg";
+import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/navbarsStyle.js";
+
+const useStyles = makeStyles(styles);
+
+// export default class Index extends Component {
+//   componentDidMount = () => {
+//     Router.push("/components");
+//   };
+
+//   render() {
+//     return <div />;
+//   }
+// }
+
+const Home = () => {
+  const classes = useStyles();
+  return (
+    <div id="navbar" className={classes.navbar}>
+      <div
+        className={classes.navigation}
+        style={{ backgroundImage: "url(" + image + ")" }}
+      >
+        <SectionTabs />
+      </div>
+    </div>
+  );
+};
 
 export default Home;
