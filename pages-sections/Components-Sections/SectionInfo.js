@@ -22,8 +22,6 @@ import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearPr
 import Paginations from "components/Pagination/Pagination.js";
 import Badge from "components/Badge/Badge.js";
 
-import SectionCarousel from "./SectionInfo.js";
-
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/basicsStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -84,7 +82,6 @@ export default function SectionBasics(props) {
                 Na Champz investir em atletas de alto desempenho é muito fácil
             </h3>
           </div>
-          <SectionCarousel />
         </div>
       </div>
     </div>
