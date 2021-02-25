@@ -26,7 +26,7 @@ const page_data = {
   "investor": {
     "slide1": {
       "image": InvestorImage1,
-      "description": "Os atletas brasileiro possuem um enorme potencial"
+      "description": "Os atletas brasileiros possuem um enorme potencial"
     },
     "slide2": {
       "image": InvestorImage2,

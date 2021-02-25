@@ -41,7 +41,7 @@ export default function SectionBasics(props) {
   const user_type = props.user_type;
   const data = page_data[user_type];
   return (
-    <div className={classes.sections}>
+    <div className={classes.sections} id="info_section">
       <div className={classes.container}>
         <div className={classes.title}>
           <h2>Como Funciona</h2>

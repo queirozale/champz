@@ -17,6 +17,8 @@ import AthleteImage1 from "assets/img/bg.jpg";
 import AthleteImage2 from "assets/img/bg2.jpg";
 import AthleteImage3 from "assets/img/bg3.jpg";
 
+import Link from "next/link";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(styles);
@@ -41,18 +43,18 @@ const page_data = {
     "athlete": {
       "slide1": {
         "image": InvestorImage1,
-        "title": "#",
-        "subtitle": "#"
+        "title": "Bolsa Champz",
+        "subtitle": "Acesse investimentos para a evolução da sua carreira"
       },
       "slide2": {
         "image": InvestorImage2,
-        "title": "#",
-        "subtitle": "#"
+        "title": "Benefícios exclusivos",
+        "subtitle": "Esteja um passo a frente dos seus adversários com nossos benefícios"
       },
       "slide3": {
         "image": InvestorImage3,
-        "title": "#",
-        "subtitle": "#"
+        "title": "Comunidade",
+        "subtitle": "Mais do que uma plataforma, somos uma rede de conexões"
       }
     }
   }
@@ -63,11 +65,12 @@ const AutoRotatingCarouselModal = (props) => {
   const isMobile = props.isMobile;
   const user_type = props.user_type;
   const data = page_data[user_type];
+
   return (
     <div>
       {/* <Button onClick={() => setHandleOpen({ open: true })}>Open carousel</Button> */}
       <AutoRotatingCarousel
-        label="Get started"
+        label="Quero participar"
         open={handleOpen.open}
         onClose={() => setHandleOpen({ open: false })}
         onStart={() => setHandleOpen({ open: false })}

@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from "react";
-import Link from "next/link";
-// import {Link} from 'react-scroll';
+// import Link from "next/link";
+import {Link} from 'react-scroll';
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -34,7 +34,9 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          Como funciona
+          <Link to="info_section" spy={true} smooth={true} className={classes.navLink}>
+            Como funciona
+          </Link>
         </Button>
         <Button
           href="#"
@@ -42,7 +44,9 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          Simulador
+          <Link to="simulator_section" spy={true} smooth={true} className={classes.navLink}>
+            Simulador
+          </Link>
         </Button>
         <Button
           href="#"
@@ -50,7 +54,9 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          Quero participar
+          <Link to="forms_section" spy={true} smooth={true} className={classes.navLink}>
+            Quero participar
+          </Link>
         </Button>
         <Button
           href="#"
@@ -58,7 +64,9 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          Sobre nós
+          <Link to="aboutus_section" spy={true} smooth={true} className={classes.navLink}>
+            Sobre nós
+          </Link>
         </Button>
       </ListItem>
     </List>
