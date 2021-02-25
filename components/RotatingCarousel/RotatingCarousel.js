@@ -9,11 +9,60 @@ import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import SportsMmaIcon from '@material-ui/icons/SportsMma';
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/basicsStyle.js";
 import Button from "components/CustomButtons/Button.js";
+
+import InvestorImage1 from "assets/img/boxe.jpg";
+import InvestorImage2 from "assets/img/jiu.jpg";
+import InvestorImage3 from "assets/img/judo.jpg";
+import AthleteImage1 from "assets/img/bg.jpg";
+import AthleteImage2 from "assets/img/bg2.jpg";
+import AthleteImage3 from "assets/img/bg3.jpg";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(styles);
+const page_data = {
+    "investor": {
+      "slide1": {
+        "image": InvestorImage1,
+        "title": "Escolha seu Champz",
+        "subtitle": "Conheça todos os atletas da Champz"
+      },
+      "slide2": {
+        "image": InvestorImage2,
+        "title": "Invista na carreira",
+        "subtitle": "Acelere a carreira do seu atleta para que ele chegue no topo"
+      },
+      "slide3": {
+        "image": InvestorImage3,
+        "title": "Ganhe com as conquistas",
+        "subtitle": "Parte das premiações do seu atleta vai direto para você"
+      }
+    },
+    "athlete": {
+      "slide1": {
+        "image": InvestorImage1,
+        "title": "#",
+        "subtitle": "#"
+      },
+      "slide2": {
+        "image": InvestorImage2,
+        "title": "#",
+        "subtitle": "#"
+      },
+      "slide3": {
+        "image": InvestorImage3,
+        "title": "#",
+        "subtitle": "#"
+      }
+    }
+  }
 
-const AutoRotatingCarouselModal = ({ handleOpen, setHandleOpen, isMobile }) => {
+const AutoRotatingCarouselModal = (props) => {
+  const handleOpen = props.handleOpen;
+  const setHandleOpen = props.setHandleOpen;
+  const isMobile = props.isMobile;
+  const user_type = props.user_type;
+  const data = page_data[user_type];
   return (
     <div>
       {/* <Button onClick={() => setHandleOpen({ open: true })}>Open carousel</Button> */}
@@ -28,43 +77,44 @@ const AutoRotatingCarouselModal = ({ handleOpen, setHandleOpen, isMobile }) => {
       >
         <Slide
           media={
-            <img src={"http://www.icons101.com/icon_png/size_256/id_80975/GoogleInbox.png"} />
+            <img src={InvestorImage1} />
           }
           mediaBackgroundStyle={{ backgroundColor: red[400] }}
           style={{ backgroundColor: red[600] }}
-          title="This is a very cool feature"
-          subtitle="Just using this will blow your mind."
+          title={data.slide1.title}
+          subtitle={data.slide1.subtitle}
         />
         <Slide
           media={
-            <img src="http://www.icons101.com/icon_png/size_256/id_80975/GoogleInbox.png" />
+            <img src={data.slide2.image} />
           }
           mediaBackgroundStyle={{ backgroundColor: blue[400] }}
           style={{ backgroundColor: blue[600] }}
-          title="Ever wanted to be popular?"
-          subtitle="Well just mix two colors and your are good to go!"
+          title={data.slide2.title}
+          subtitle={data.slide2.subtitle}
         />
         <Slide
           media={
-            <img src="http://www.icons101.com/icon_png/size_256/id_76704/Google_Settings.png" />
+            <img src={data.slide3.image} />
           }
           mediaBackgroundStyle={{ backgroundColor: green[400] }}
           style={{ backgroundColor: green[600] }}
-          title="May the force be with you"
-          subtitle="The Force is a metaphysical and ubiquitous power in the Star Wars fictional universe."
+          title={data.slide3.title}
+          subtitle={data.slide3.subtitle}
         />
       </AutoRotatingCarousel>
     </div>
   );
 };
 
-function RotatingCarousel() {
+function RotatingCarousel(props) {
   const classes = useStyles();
   const [handleOpen, setHandleOpen] = useState({ open: false });
   const handleClick = () => {
     setHandleOpen({ open: true });
   };
   const matches = useMediaQuery("(max-width:600px)");
+  const user_type = props.user_type;
   return (
     <>
       <Button color="info" round onClick={handleClick}>
@@ -74,6 +124,7 @@ function RotatingCarousel() {
         isMobile={matches}
         handleOpen={handleOpen}
         setHandleOpen={setHandleOpen}
+        user_type={user_type}
       />
     </>
   );

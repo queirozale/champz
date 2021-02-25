@@ -17,7 +17,7 @@ import AthleteImage1 from "assets/img/bg.jpg";
 import AthleteImage2 from "assets/img/bg2.jpg";
 import AthleteImage3 from "assets/img/bg3.jpg";
 
-import AutoRotatingCarouselModal from "components/RotatingCarousel/RotatingCarousel.js"
+import RotatingCarousel from "components/RotatingCarousel/RotatingCarousel.js"
 
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/carouselStyle.js";
 
@@ -104,7 +104,7 @@ export default function SectionCarousel(props) {
             </Card>
           </GridItem>
           <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
-            <AutoRotatingCarouselModal />
+            <RotatingCarousel user_type={user_type} />
           </GridItem>
         </GridContainer>
       </div>
