@@ -22,66 +22,41 @@ import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearPr
 import Paginations from "components/Pagination/Pagination.js";
 import Badge from "components/Badge/Badge.js";
 
+import SectionCarousel from "./SectionCarousel.js";
+
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/basicsStyle.js";
 
 const useStyles = makeStyles(styles);
+const page_data = {
+  "investor": {
+    "description": "Investir na Champz é muito fácil"
+  },
+  "athlete": {
+    "description": "Captar recursos na Champz é simples"
+  }
+}
 
 export default function SectionBasics(props) {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([24, 22]);
-  const [selectedEnabled, setSelectedEnabled] = React.useState("b");
-  const [checkedA, setCheckedA] = React.useState(true);
-  const [checkedB, setCheckedB] = React.useState(false);
   const user_type = props.user_type;
-
-  React.useEffect(() => {
-    if (
-      !document
-        .getElementById("sliderRegular")
-        .classList.contains("noUi-target")
-    ) {
-      Slider.create(document.getElementById("sliderRegular"), {
-        start: [40],
-        connect: [true, false],
-        step: 1,
-        range: { min: 0, max: 100 }
-      });
-    }
-    if (
-      !document.getElementById("sliderDouble").classList.contains("noUi-target")
-    ) {
-      Slider.create(document.getElementById("sliderDouble"), {
-        start: [20, 60],
-        connect: [false, true, false],
-        step: 1,
-        range: { min: 0, max: 100 }
-      });
-    }
-    return function cleanup() {};
-  });
-  const handleToggle = value => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-    setChecked(newChecked);
-  };
+  const data = page_data[user_type];
   return (
     <div className={classes.sections}>
       <div className={classes.container}>
         <div className={classes.title}>
-          <h2>Entenda o processo</h2>
+          <h2>Como Funciona</h2>
         </div>
         <div id="buttons">
           <div className={classes.title}>
             <h3>
-                Na Champz investir em atletas de alto desempenho é muito fácil
+              {data.description}
             </h3>
           </div>
+          <GridContainer justify="center">
+            <GridItem xs={12} sm={12} md={10}>
+              <SectionCarousel user_type={user_type} />
+            </GridItem>
+          </GridContainer>
         </div>
       </div>
     </div>

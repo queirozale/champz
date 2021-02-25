@@ -10,15 +10,50 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
 
-import image1 from "assets/img/bg.jpg";
-import image2 from "assets/img/bg2.jpg";
-import image3 from "assets/img/bg3.jpg";
+import InvestorImage1 from "assets/img/boxe.jpg";
+import InvestorImage2 from "assets/img/jiu.jpg";
+import InvestorImage3 from "assets/img/judo.jpg";
+import AthleteImage1 from "assets/img/bg.jpg";
+import AthleteImage2 from "assets/img/bg2.jpg";
+import AthleteImage3 from "assets/img/bg3.jpg";
+
+import AutoRotatingCarouselModal from "components/RotatingCarousel/RotatingCarousel.js"
 
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/carouselStyle.js";
 
 const useStyles = makeStyles(styles);
+const page_data = {
+  "investor": {
+    "slide1": {
+      "image": InvestorImage1,
+      "description": "Os atletas brasileiro possuem um enorme potencial"
+    },
+    "slide2": {
+      "image": InvestorImage2,
+      "description": "Mas precisam de apoio para seu crescimento"
+    },
+    "slide3": {
+      "image": InvestorImage3,
+      "description": "Você pode ser fundamental nesse processo"
+    }
+  },
+  "athlete": {
+    "slide1": {
+      "image": InvestorImage1,
+      "description": "Atletas de alto desempenho precisam de um suporte financeiro"
+    },
+    "slide2": {
+      "image": InvestorImage2,
+      "description": "Nós auxiliamos você nessa jornada"
+    },
+    "slide3": {
+      "image": InvestorImage3,
+      "description": "Para que você possa virar o jogo"
+    }
+  }
+}
 
-export default function SectionCarousel() {
+export default function SectionCarousel(props) {
   const classes = useStyles();
   const settings = {
     dots: true,
@@ -28,6 +63,8 @@ export default function SectionCarousel() {
     slidesToScroll: 1,
     autoplay: false
   };
+  const user_type = props.user_type;
+  const data = page_data[user_type];
   return (
     <div className={classes.section}>
       <div className={classes.container}>
@@ -36,38 +73,38 @@ export default function SectionCarousel() {
             <Card carousel>
               <Carousel {...settings}>
                 <div>
-                  <img src={image1} alt="First slide" className="slick-image" />
+                  <img src={data.slide1.image} alt="First slide" className="slick-image" />
                   <div className="slick-caption">
                     <h4>
-                      <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                      {data.slide1.description}
                     </h4>
                   </div>
                 </div>
                 <div>
                   <img
-                    src={image2}
+                    src={data.slide2.image}
                     alt="Second slide"
                     className="slick-image"
                   />
                   <div className="slick-caption">
                     <h4>
-                      <LocationOn className="slick-icons" />
-                      Somewhere Beyond, United States
+                      {data.slide2.description}
                     </h4>
                   </div>
                 </div>
                 <div>
-                  <img src={image3} alt="Third slide" className="slick-image" />
+                  <img src={data.slide3.image} alt="Third slide" className="slick-image" />
                   <div className="slick-caption">
                     <h4>
-                      <LocationOn className="slick-icons" />
-                      Yellowstone National Park, United States
+                      {data.slide3.description}
                     </h4>
                   </div>
                 </div>
               </Carousel>
             </Card>
+          </GridItem>
+          <GridItem xs={12} sm={12} md={8} className={classes.marginAuto}>
+            <AutoRotatingCarouselModal />
           </GridItem>
         </GridContainer>
       </div>
