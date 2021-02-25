@@ -28,65 +28,15 @@ import SectionLogin from "pages-sections/Components-Sections/SectionLogin.js";
 import SectionExamples from "pages-sections/Components-Sections/SectionExamples.js";
 import SectionDownload from "pages-sections/Components-Sections/SectionDownload.js";
 
+import LandingPage from "./landingPage.js";
+
 import styles from "assets/jss/nextjs-material-kit/pages/components.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Components(props) {
+export default function InvestorPage() {
   const classes = useStyles();
-  const { ...rest } = props;
   return (
-    <div>
-      <Header
-        brand="NextJS Material Kit"
-        rightLinks={<HeaderLinks />}
-        fixed
-        color="transparent"
-        changeColorOnScroll={{
-          height: 400,
-          color: "white"
-        }}
-        {...rest}
-      />
-      <Parallax image={require("assets/img/nextjs_header.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem>
-              <div className={classes.brand}>
-                <h1 className={classes.title}>Athlete</h1>
-                <h3 className={classes.subtitle}>
-                  A Badass Material Kit based on Material-UI and NextJS.
-                </h3>
-              </div>
-            </GridItem>
-          </GridContainer>
-        </div>
-      </Parallax>
-
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <SectionBasics />
-        <SectionNavbars />
-        <SectionTabs />
-        <SectionPills />
-        <SectionNotifications />
-        <SectionTypography />
-        <SectionJavascript />
-        <SectionCarousel />
-        <SectionCompletedExamples />
-        <SectionLogin />
-        <GridItem md={12} className={classes.textCenter}>
-          <Link href="/login">
-            <a className={classes.link}>
-              <Button color="primary" size="lg" simple>
-                View Login Page
-              </Button>
-            </a>
-          </Link>
-        </GridItem>
-        <SectionExamples />
-        <SectionDownload />
-      </div>
-      <Footer />
-    </div>
+    <LandingPage user_type="athlete" />
   );
 }

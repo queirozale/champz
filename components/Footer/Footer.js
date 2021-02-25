@@ -33,53 +33,44 @@ export default function Footer(props) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://www.creative-tim.com/?ref=njsmk-footer"
+                href="#"
                 className={classes.block}
                 target="_blank"
               >
-                Creative Tim
+                <i className={classes.socialIcons + " fab fa-facebook"} />
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://www.creative-tim.com/presentation?ref=njsmk-footer"
+                href="#"
                 className={classes.block}
                 target="_blank"
               >
-                About us
+                <i className={classes.socialIcons + " fab fa-instagram"} />
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="http://blog.creative-tim.com/?ref=njsmk-footer"
+                href="#"
                 className={classes.block}
                 target="_blank"
               >
-                Blog
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/license?ref=njsmk-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Licenses
+                <i className={classes.socialIcons + " fab fa-twitter"} />
               </a>
             </ListItem>
           </List>
         </div>
         <div className={classes.right}>
-          &copy; {1900 + new Date().getYear()} , made with{" "}
-          <Favorite className={classes.icon} /> by{" "}
+          &copy; {1900 + new Date().getYear()} , feito com {" "}
+          <Favorite className={classes.icon} /> por {" "}
           <a
-            href="https://www.creative-tim.com?ref=njsmk-footer"
+            href="#"
             className={aClasses}
             target="_blank"
           >
-            Creative Tim
+            Champz
           </a>{" "}
-          for a better web.
+          para um melhor cenário esportivo
         </div>
       </div>
     </footer>

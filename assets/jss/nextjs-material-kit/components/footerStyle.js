@@ -54,6 +54,11 @@ const footerStyle = {
     height: "18px",
     position: "relative",
     top: "3px"
-  }
+  },
+  socialIcons: {
+    position: "relative",
+    fontSize: "20px !important",
+    marginRight: "4px"
+  },
 };
 export default footerStyle;

@@ -78,7 +78,7 @@ export default class MyApp extends App {
     return (
       <React.Fragment>
         <Head>
-          <title>NextJS Material Kit by Creative Tim</title>
+          <title>Champz</title>
         </Head>
         <Component {...pageProps} />
       </React.Fragment>
