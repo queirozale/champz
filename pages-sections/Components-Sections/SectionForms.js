@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -10,62 +12,199 @@ import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 
+
 import styles from "assets/jss/nextjs-material-kit/pages/landingPageSections/workStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function WorkSection() {
+function WorkSection(props) {
   const classes = useStyles();
-  return (
-    <div className={classes.section} id="forms_section">
-      <GridContainer justify="center">
-        <GridItem cs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Quero participar</h2>
-          <h4 className={classes.description}>
-            Divide details about your product or agency work into parts. Write a
-            few lines about each one and contact us about any further
-            collaboration. We will responde get back to you in a couple of
-            hours.
-          </h4>
-          <form>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={6}>
+  const user_type = props.user_type;
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg }
+    });
+    if (ok) {
+      form.reset();
+    }
+  };
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    setServerState({ submitting: true });
+    axios({
+      method: "post",
+      url: "https://formspree.io/xoqpzdwv",
+      data: new FormData(form)
+    })
+      .then(r => {
+        handleServerResponse(true, "Obrigado!", form);
+      })
+      .catch(r => {
+        handleServerResponse(false, r.response.data.error, form);
+      });
+  };
+  if (user_type === "investor") {
+    return (
+        <div className={classes.section} id="forms_section">
+          <GridContainer justify="center">
+            <GridItem cs={12} sm={12} md={8}>
+              <h2 className={classes.title}>Quero participar</h2>
+              </GridItem>
+              <form onSubmit={handleOnSubmit}>
+              <GridContainer>
+                <GridItem xs={12} sm={12} md={6}>
+                  <CustomInput
+                    labelText="Nome"
+                    id="name"
+                    name="name"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={6}>
+                  <CustomInput
+                    labelText="Email"
+                    id="email"
+                    name="email"
+                    type="email" 
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                    required
+                  />
+                </GridItem>
                 <CustomInput
-                  labelText="Your Name"
-                  id="name"
+                  labelText="Fale conosco"
+                  id="message"
+                  name="message"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
+                    className: classes.textArea
+                  }}
+                  inputProps={{
+                    multiline: true,
+                    rows: 5
                   }}
                 />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={6}>
-                <CustomInput
-                  labelText="Your Email"
-                  id="email"
-                  formControlProps={{
-                    fullWidth: true
-                  }}
-                />
-              </GridItem>
+                <GridItem xs={12} sm={12} md={4}
+                >
+                  <Button 
+                  color="primary"
+                  type="submit" 
+                  disabled={serverState.submitting}
+                  >
+                    Enviar
+                  </Button>
+                  {serverState.status && (
+                  <p className={!serverState.status.ok ? "errorMsg" : ""}>
+                    {serverState.status.msg}
+                  </p>
+                  )}
+                </GridItem>
+              </GridContainer>
+              </form>
+          </GridContainer>
+        </div>
+    );
+  } else {
+    return (
+      <div className={classes.section} id="forms_section">
+        <GridContainer justify="center">
+          <GridItem cs={12} sm={12} md={8}>
+            <h2 className={classes.title}>Quero participar</h2>
+          </GridItem>
+          <form onSubmit={handleOnSubmit}>
+          <GridContainer>
+            <GridItem xs={12} sm={6} md={6}>
               <CustomInput
-                labelText="Your Message"
-                id="message"
+                labelText="Nome"
+                id="name"
+                name="name"
                 formControlProps={{
-                  fullWidth: true,
-                  className: classes.textArea
-                }}
-                inputProps={{
-                  multiline: true,
-                  rows: 5
+                  fullWidth: true
                 }}
               />
-              <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>
-                <Button color="primary">Send Message</Button>
-              </GridItem>
-            </GridContainer>
+            </GridItem>
+            <GridItem xs={12} sm={6} md={6}>
+              <CustomInput
+                labelText="Email"
+                id="email"
+                name="email"
+                type="email" 
+                formControlProps={{
+                  fullWidth: true
+                }}
+                required
+              />
+            </GridItem>
+            <GridItem xs={12} sm={6} md={6}>
+              <CustomInput
+                labelText="Idade"
+                id="age"
+                name="age"
+                formControlProps={{
+                  fullWidth: true
+                }}
+              />
+            </GridItem>
+            <GridItem xs={12} sm={6} md={6}>
+              <CustomInput
+                labelText="Tempo de treino"
+                id="train_xp"
+                name="train_xp"
+                formControlProps={{
+                  fullWidth: true
+                }}
+              />
+            </GridItem>
+            <GridItem xs={12} sm={6} md={6}>
+              <CustomInput
+                labelText="Faixa"
+                id="faixa"
+                name="faixa"
+                formControlProps={{
+                  fullWidth: true
+                }}
+              />
+            </GridItem>
+            <GridItem xs={12} sm={6} md={6}>
+              <CustomInput
+                labelText="Equipe"
+                id="team"
+                name="team"
+                formControlProps={{
+                  fullWidth: true
+                }}
+              />
+            </GridItem>
+            <GridItem xs={12} sm={6} md={6}
+            >
+              <Button 
+              color="primary"
+              type="submit" 
+              disabled={serverState.submitting}
+              >
+                Enviar
+              </Button>
+              {serverState.status && (
+              <p className={!serverState.status.ok ? "errorMsg" : ""}>
+                {serverState.status.msg}
+              </p>
+              )}
+            </GridItem>
+          </GridContainer>
           </form>
-        </GridItem>
-      </GridContainer>
-    </div>
-  );
-}
+        </GridContainer>
+      </div>
+    );
+  };
+};
+
+export default WorkSection;

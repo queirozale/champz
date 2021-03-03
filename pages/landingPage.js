@@ -71,7 +71,7 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <SectionInfo user_type={user_type} />
         <SectionSimulator />
-        <SectionForms />
+        <SectionForms user_type={user_type} />
         <SectionAboutUs />
       </div>
       <Footer />
