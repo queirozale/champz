@@ -122,7 +122,7 @@ function WorkSection(props) {
           </GridItem>
           <form onSubmit={handleOnSubmit}>
           <GridContainer>
-            <GridItem xs={12} sm={6} md={6}>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
               <CustomInput
                 labelText="Nome"
                 id="name"
@@ -132,7 +132,7 @@ function WorkSection(props) {
                 }}
               />
             </GridItem>
-            <GridItem xs={12} sm={6} md={6}>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
               <CustomInput
                 labelText="Email"
                 id="email"
@@ -144,7 +144,7 @@ function WorkSection(props) {
                 required
               />
             </GridItem>
-            <GridItem xs={12} sm={6} md={6}>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
               <CustomInput
                 labelText="Idade"
                 id="age"
@@ -154,7 +154,9 @@ function WorkSection(props) {
                 }}
               />
             </GridItem>
-            <GridItem xs={12} sm={6} md={6}>
+            </GridContainer>
+            <GridContainer>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
               <CustomInput
                 labelText="Tempo de treino"
                 id="train_xp"
@@ -164,7 +166,7 @@ function WorkSection(props) {
                 }}
               />
             </GridItem>
-            <GridItem xs={12} sm={6} md={6}>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
               <CustomInput
                 labelText="Faixa"
                 id="faixa"
@@ -174,7 +176,7 @@ function WorkSection(props) {
                 }}
               />
             </GridItem>
-            <GridItem xs={12} sm={6} md={6}>
+            <GridItem xs={12} sm={4} md={4} lg={3}>
               <CustomInput
                 labelText="Equipe"
                 id="team"
