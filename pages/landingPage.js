@@ -18,7 +18,7 @@ import Parallax from "components/Parallax/Parallax.js";
 import SectionInfo from "pages-sections/Components-Sections/SectionInfo.js";
 import SectionAboutUs from "pages-sections/Components-Sections/SectionAboutUs.js";
 import SectionForms from "pages-sections/Components-Sections/SectionForms.js";
-import SectionSimulator from "pages-sections/Components-Sections/SectionSimulator.js";
+// import SectionSimulator from "pages-sections/Components-Sections/SectionSimulator.js";
 
 import styles from "assets/jss/nextjs-material-kit/pages/components.js";
 
@@ -70,7 +70,7 @@ export default function LandingPage(props) {
 
       <div className={classNames(classes.main, classes.mainRaised)}>
         <SectionInfo user_type={user_type} />
-        <SectionSimulator />
+        {/* <SectionSimulator user_type={user_type} /> */}
         <SectionForms user_type={user_type} />
         <SectionAboutUs />
       </div>
