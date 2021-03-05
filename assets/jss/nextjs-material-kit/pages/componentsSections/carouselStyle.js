@@ -7,8 +7,9 @@ const carouselStyle = {
   container,
   marginAuto: {
     marginLeft: "auto !important",
-    marginRight: "auto !important"
-  }
+    marginRight: "auto !important",
+    textAlign: "center"
+  },
 };
 
 export default carouselStyle;
