@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-// import Slide from "react-swipeable-views";
-// import Button from "@material-ui/core/Button";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { red, blue, green } from "@material-ui/core/colors";
+import { red, blue, green, yellow, 
+        orange, pink, purple, teal } from "@material-ui/core/colors";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 
 import SportsMmaIcon from '@material-ui/icons/SportsMma';
 import styles from "assets/jss/nextjs-material-kit/pages/componentsSections/basicsStyle.js";
 import Button from "components/CustomButtons/Button.js";
 
-import InvestorImage1 from "assets/img/boxe.jpg";
-import InvestorImage2 from "assets/img/jiu.jpg";
-import InvestorImage3 from "assets/img/judo.jpg";
-import AthleteImage1 from "assets/img/bg.jpg";
-import AthleteImage2 from "assets/img/bg2.jpg";
-import AthleteImage3 from "assets/img/bg3.jpg";
-
-import Link from "next/link";
+import InvestorImage1 from "assets/img/muay-thai.png";
+import InvestorImage2 from "assets/img/investor.png";
+import InvestorImage3 from "assets/img/winner.png";
+import AthleteImage1 from "assets/img/sponsorship.png";
+import AthleteImage2 from "assets/img/benefits.png";
+import AthleteImage3 from "assets/img/networking.png";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -42,17 +38,17 @@ const page_data = {
     },
     "athlete": {
       "slide1": {
-        "image": InvestorImage1,
+        "image": AthleteImage1,
         "title": "Bolsa Champz",
         "subtitle": "Acesse investimentos para a evolução da sua carreira"
       },
       "slide2": {
-        "image": InvestorImage2,
+        "image": AthleteImage2,
         "title": "Benefícios exclusivos",
         "subtitle": "Esteja um passo a frente dos seus adversários com nossos benefícios"
       },
       "slide3": {
-        "image": InvestorImage3,
+        "image": AthleteImage3,
         "title": "Comunidade",
         "subtitle": "Mais do que uma plataforma, somos uma rede de conexões"
       }
@@ -64,9 +60,26 @@ const AutoRotatingCarouselModal = (props) => {
   const setHandleOpen = props.setHandleOpen;
   const isMobile = props.isMobile;
   const user_type = props.user_type;
+  const href = user_type+"#forms_section";
   const data = page_data[user_type];
 
+  const handleScroll = () => {
+    const hash = "#aboutus_section";
+    const element = document.getElementById(hash.replace("#", ""));
+    
+    setTimeout(() => {
+      window.scrollTo({
+        behavior: element ? "smooth" : "auto",
+        top: element ? element.offsetTop : 0,
+        block: "center"
+      });
+    }, 100);
+
+    setHandleOpen({ open: false })
+  };
+
   return (
+    // <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     <div>
       {/* <Button onClick={() => setHandleOpen({ open: true })}>Open carousel</Button> */}
       <AutoRotatingCarousel
@@ -77,13 +90,14 @@ const AutoRotatingCarouselModal = (props) => {
         autoplay={false}
         mobile={isMobile}
         style={{ position: "absolute" }}
+        onStart={handleScroll}
       >
         <Slide
           media={
-            <img src={InvestorImage1} />
+            <img src={data.slide1.image} />
           }
-          mediaBackgroundStyle={{ backgroundColor: red[400] }}
-          style={{ backgroundColor: red[600] }}
+          mediaBackgroundStyle={{ backgroundColor: orange[200] }}
+          style={{ backgroundColor: orange[600] }}
           title={data.slide1.title}
           subtitle={data.slide1.subtitle}
         />
@@ -100,8 +114,8 @@ const AutoRotatingCarouselModal = (props) => {
           media={
             <img src={data.slide3.image} />
           }
-          mediaBackgroundStyle={{ backgroundColor: green[400] }}
-          style={{ backgroundColor: green[600] }}
+          mediaBackgroundStyle={{ backgroundColor: teal[200] }}
+          style={{ backgroundColor: teal[800] }}
           title={data.slide3.title}
           subtitle={data.slide3.subtitle}
         />

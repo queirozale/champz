@@ -2,7 +2,7 @@ import { title } from "assets/jss/nextjs-material-kit.js";
 
 const workStyle = {
   section: {
-    padding: "70px 0"
+    padding: "15px 0"
   },
   title: {
     ...title,

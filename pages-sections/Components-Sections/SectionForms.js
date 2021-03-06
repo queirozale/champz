@@ -67,6 +67,7 @@ export default function SectionForms(props) {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    required={true}
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -78,6 +79,7 @@ export default function SectionForms(props) {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    required={true}
                   />
                 </GridItem>
                 <CustomInput
@@ -132,6 +134,7 @@ export default function SectionForms(props) {
                       formControlProps={{
                         fullWidth: true
                       }}
+                      required={true}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
@@ -143,6 +146,7 @@ export default function SectionForms(props) {
                       formControlProps={{
                         fullWidth: true
                       }}
+                      required={true}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
@@ -153,6 +157,7 @@ export default function SectionForms(props) {
                       formControlProps={{
                         fullWidth: true
                       }}
+                      required={true}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
@@ -163,6 +168,7 @@ export default function SectionForms(props) {
                       formControlProps={{
                         fullWidth: true
                       }}
+                      required={true}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
@@ -173,6 +179,7 @@ export default function SectionForms(props) {
                       formControlProps={{
                         fullWidth: true
                       }}
+                      required={true}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
@@ -183,6 +190,7 @@ export default function SectionForms(props) {
                       formControlProps={{
                         fullWidth: true
                       }}
+                      required={true}
                     />
                   </GridItem>
                 <GridItem xs={12} sm={12} md={4} className={classes.textCenter}>

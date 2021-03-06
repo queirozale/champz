@@ -38,7 +38,7 @@ export default function HeaderLinks(props) {
             Como funciona
           </Link>
         </Button>
-        <Button
+        {/* <Button
           href="#"
           color="transparent"
           target="_blank"
@@ -47,7 +47,7 @@ export default function HeaderLinks(props) {
           <Link to="simulator_section" spy={true} smooth={true} className={classes.navLink}>
             Simulador
           </Link>
-        </Button>
+        </Button> */}
         <Button
           href="#"
           color="transparent"
